@@ -15,8 +15,8 @@ Get the latest semantic version number from a Docker Hub repository's tagged ima
 | dockerhub_token | The token to authenticate to the Docker Hub API with (must have read access). | Yes |  |
 | namespace | The namespace the repository is in. | No | library |
 | repository | The repository to search tags for. | Yes |  |
-| minimum_version | The minimum version number to accept, e.g. 2.0.0. | No | None |
-| maximum_version | The maximum version number to accept, e.g. 2.99.99. | No | None |
+| greater_equal_version | The minimum version to accept, e.g. 2.0.0. | No | None |
+| less_than_version | The version to accept versions less than, e.g. 3.0.0. | No | None |
 
 ## Outputs
 
@@ -30,7 +30,7 @@ Get the latest semantic version number from a Docker Hub repository's tagged ima
 ```yaml
       - name: Get Latest Nextcloud Version
         id: version
-        uses: joepitt91/action-version-from-dockerhub@v1
+        uses: joepitt91/action-version-from-dockerhub@v2
         with:
           dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
